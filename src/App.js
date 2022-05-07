@@ -4,6 +4,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Pocetna from "./pages/Pocetna";
 import Korpa from "./pages/Korpa";
 import Kontakt from "./pages/Kontakt";
+import NavMenu from "./components/NavMenu";
 
 function App() {
 
@@ -51,13 +52,24 @@ function App() {
 
     }
 
+
+    function pretraga(e){
+        let novNiz=[];
+        repertoar.forEach((film)=>{
+            if(film.naziv.toLowerCase().indexOf(e.target.value.toLowerCase())>-1){
+                novNiz.push(film)
+            }
+        })
+        setRepertoarPrikaz(novNiz);
+    }
+
     return (
         <div className="App">
 
             <BrowserRouter>
-
+            <NavMenu brojKupljenihKarata={brojKupljenihKarata} pretraga={pretraga}/>
                 <Routes>
-                    <Route path='/' element={<Pocetna repertoar={repertoar} kupiKartu={kupiKartu}/>} />
+                    <Route path='/' element={<Pocetna repertoar={repertoarPrikaz} kupiKartu={kupiKartu}/>} />
                     <Route path='/korpa' element={<Korpa/>}/>
                     <Route path='/kontakt' element={<Kontakt/>}/>
                 </Routes>

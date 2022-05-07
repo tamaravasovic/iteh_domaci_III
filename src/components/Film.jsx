@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Film({film,kupiKartu}) {
-    const stil = {backgroundColor: 'rgba(0,0,0,0.62)', color: '#ffffff'}
+    const stil = {backgroundColor: 'rgba(0,0,0,0.84)', color: '#ffffff'}
     return (
         <div className='col filmCard'>
             <div className=" card" style={stil}>
