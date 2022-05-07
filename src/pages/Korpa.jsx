@@ -1,9 +1,13 @@
 import React from 'react';
+import Karta from "../components/Karta";
 
-function Korpa(){
+function Korpa({korpa,obrisiKartu}){
     return (
         <div className='korpa'>
-            korpa
+            {korpa.map((film) => (
+                <Karta film={film} obrisiKartu={obrisiKartu} />
+            ))}
+
         </div>
     );
 }

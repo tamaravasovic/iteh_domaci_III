@@ -95,7 +95,7 @@ function App() {
                 <Routes>
                     <Route path='/' element={<Pocetna repertoar={repertoarPrikaz} kupiKartu={kupiKartu}
                                                       obrisiKartu={obrisiKartu}/>}/>
-                    <Route path='/korpa' element={<Korpa/>}/>
+                    <Route path='/korpa' element={<Korpa korpa={korpa} obrisiKartu={obrisiKartu}/>}/>
                     <Route path='/kontakt' element={<Kontakt/>}/>
                 </Routes>
             </BrowserRouter>
