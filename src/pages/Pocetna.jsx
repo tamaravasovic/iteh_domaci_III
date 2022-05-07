@@ -1,9 +1,15 @@
 import React from 'react';
+import Film from "../components/Film";
 
-function Pocetna(){
+function Pocetna({repertoar,kupiKartu}) {
     return (
         <div className='pocetna'>
-                asdfad
+            <h2 className='naslovStrane'>Bioskop</h2>
+            <div className=' row row-cols-1 row-cols-sm-2 g-3'>
+                {repertoar.map((film) => (
+                    <Film key={film.id} film={film} kupiKartu={kupiKartu} />
+                ))}
+            </div>
         </div>
     );
 }
