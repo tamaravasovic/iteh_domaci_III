@@ -1,4 +1,5 @@
 import React from 'react';
+import Dugme from "./Dugme";
 
  function Karta({film,obrisiKartu}){
     return(
@@ -18,9 +19,7 @@ import React from 'react';
                     <span>trajanje</span>
                 </div>
                 <div className="name">
-                    <button type='button' onClick={() => obrisiKartu(film.id)}
-                            className="btn btn-secondary">Obrisi kartu
-                    </button>
+                    <Dugme tekst='Obrisi kartu' funkcija={obrisiKartu} film={film}/>
                 </div>
 
 

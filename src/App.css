@@ -100,7 +100,7 @@ h1 span {
     text-transform: uppercase;
 }
 .number h3 {
-    color: #3d46e8;
+    color: #e84c3d;
     margin: 0.9em 0 0 0;
     font-size: 2.5em;
 }
@@ -108,4 +108,15 @@ h1 span {
     display: block;
     color: #a2aeae;
 }
+
+.kontakt{
+    width: 60vw;
+    padding-left: 40px;
+    padding-right:40px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: rgba(0, 0, 0, 0.86);
+    color: white;
+}
+
 

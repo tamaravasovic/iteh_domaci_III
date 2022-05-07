@@ -87,6 +87,11 @@ function App() {
         setRepertoarPrikaz(novNiz);
     }
 
+    function posaljiEmail(){
+    //    slanje email-a
+        alert('Email poslat');
+    }
+
     return (
         <div className="App">
 
@@ -96,7 +101,7 @@ function App() {
                     <Route path='/' element={<Pocetna repertoar={repertoarPrikaz} kupiKartu={kupiKartu}
                                                       obrisiKartu={obrisiKartu}/>}/>
                     <Route path='/korpa' element={<Korpa korpa={korpa} obrisiKartu={obrisiKartu}/>}/>
-                    <Route path='/kontakt' element={<Kontakt/>}/>
+                    <Route path='/kontakt' element={<Kontakt posaljiEmail={posaljiEmail}/>}/>
                 </Routes>
             </BrowserRouter>
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import Dugme from "./Dugme";
 
 function Film({film, kupiKartu, obrisiKartu}) {
     const stil = {backgroundColor: 'rgba(0,0,0,0.84)', color: '#ffffff'}
@@ -11,14 +12,10 @@ function Film({film, kupiKartu, obrisiKartu}) {
                     <p className="card-text">Zanr: {film.zanr}</p>
                     <p className="card-text">Trajanje filma: {film.trajanje}</p>
                     <div className='d-flex justify-content-start' >
-                        <button type='button' onClick={() => kupiKartu(film.id)}
-                                className="btn btn-secondary" style={{marginRight:'20px'}}>Kupi
-                        </button>
+                        <Dugme  film={film} tekst='Kupi kartu' funkcija={kupiKartu}/>
                         {film.brojKarata <= 0 ? <></>
                             :
-                            <button type='button' onClick={() => obrisiKartu(film.id)}
-                                    className="btn btn-secondary">Obrisi kartu
-                            </button>
+                            <Dugme film={film} tekst='Obrisi kartu' funkcija={obrisiKartu}/>
                         }
                     </div>
                 </div>
