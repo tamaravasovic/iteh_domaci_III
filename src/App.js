@@ -45,18 +45,42 @@ function App() {
 
     const [repertoarPrikaz, setRepertoarPrikaz] = useState(repertoar);
 
-    const [korpa, setKorpa]=useState([]);
-    const [brojKupljenihKarata,setBrojKupljenihKarata]=useState(0);
+    const [korpa, setKorpa] = useState([]);
+    const [brojKupljenihKarata, setBrojKupljenihKarata] = useState(0);
 
-    function kupiKartu(id){
+    function kupiKartu(id) {
+        repertoar.forEach((film) => {
+            if (film.id === id) {
+                film.brojKarata++;
+            }
+        })
+        setRepertoar(repertoar);
 
+        setKorpa(repertoar.filter((film) => (film.brojKarata > 0)));
+        setBrojKupljenihKarata(brojKupljenihKarata + 1);
+    }
+
+    function obrisiKartu(id) {
+        repertoar.forEach((film) => {
+            if (film.id === id && film.brojKarata > 0) {
+                film.brojKarata--;
+            }
+        })
+        setRepertoar(repertoar);
+
+        setKorpa(repertoar.filter((film) => (film.brojKarata > 0)));
+
+
+        if (brojKupljenihKarata > 0) {
+            setBrojKupljenihKarata(brojKupljenihKarata - 1);
+        }
     }
 
 
-    function pretraga(e){
-        let novNiz=[];
-        repertoar.forEach((film)=>{
-            if(film.naziv.toLowerCase().indexOf(e.target.value.toLowerCase())>-1){
+    function pretraga(e) {
+        let novNiz = [];
+        repertoar.forEach((film) => {
+            if (film.naziv.toLowerCase().indexOf(e.target.value.toLowerCase()) > -1) {
                 novNiz.push(film)
             }
         })
@@ -67,9 +91,10 @@ function App() {
         <div className="App">
 
             <BrowserRouter>
-            <NavMenu brojKupljenihKarata={brojKupljenihKarata} pretraga={pretraga}/>
+                <NavMenu brojKupljenihKarata={brojKupljenihKarata} pretraga={pretraga}/>
                 <Routes>
-                    <Route path='/' element={<Pocetna repertoar={repertoarPrikaz} kupiKartu={kupiKartu}/>} />
+                    <Route path='/' element={<Pocetna repertoar={repertoarPrikaz} kupiKartu={kupiKartu}
+                                                      obrisiKartu={obrisiKartu}/>}/>
                     <Route path='/korpa' element={<Korpa/>}/>
                     <Route path='/kontakt' element={<Kontakt/>}/>
                 </Routes>

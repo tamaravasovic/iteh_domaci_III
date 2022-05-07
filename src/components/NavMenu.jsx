@@ -1,5 +1,6 @@
 import React from 'react';
 import LinkStrana from "./LinkStrana";
+import {ImTicket} from 'react-icons/im'
 
 function NavMenu({brojKupljenihKarata, pretraga}) {
     const style = {backgroundColor: 'rgba(1,3,84,0.8)', color: 'rgb(255,255,255)'}
@@ -13,9 +14,8 @@ function NavMenu({brojKupljenihKarata, pretraga}) {
                         <LinkStrana putanja="/" tekst="Početna"/>
                         <LinkStrana putanja="/korpa" tekst="Vidi sve kupljene karte"/>
                         <LinkStrana putanja="/kontakt" tekst="Kontakt"/>
-                        <li>
-                            {brojKupljenihKarata}
-
+                        <li className='nav-link active'  style={boja}>
+                             Broj kupljenih karata: {brojKupljenihKarata} <ImTicket size={25} />
                         </li>
 
                     </ul>
